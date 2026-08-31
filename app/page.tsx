@@ -34,6 +34,7 @@ const logicPanels = [
       ['3. 等待量价反馈', '价格靠近关键层级后，不急于跟随，先观察成交变化、回收情况和受压反馈。'],
     ],
     chartMode: 'return',
+    chartImage: '/real-chart-example.png',
     topCallout: '靠近POC后成交增强，观察承接反馈',
     bottomCallout: '离开主成交区后，再靠近POC观察受压反馈',
   },
@@ -48,6 +49,7 @@ const logicPanels = [
       ['3. 对比成交变化', '靠近 POC 时如果成交明显变化，可以作为承接或受压反馈的辅助信息。'],
     ],
     chartMode: 'poc',
+    chartImage: '/real-chart-example.png',
     topCallout: 'POC附近停留时间变长，观察结构稳定性',
     bottomCallout: 'POC由密集区转为分界区，观察反馈强弱',
   },
@@ -62,6 +64,7 @@ const logicPanels = [
       ['3. 看回归迹象', '当价格从外侧回到内侧层级时，再观察成交是否同步收敛或增强。'],
     ],
     chartMode: 'deviation',
+    chartImage: '/real-chart-deviation.png',
     topCallout: '靠近外侧通道，优先识别偏离强弱',
     bottomCallout: '回到内侧层级后，观察节奏是否收敛',
   },
@@ -76,6 +79,7 @@ const logicPanels = [
       ['3. 关注下一密集层', '通过低量层后，下一段高成交层通常更适合作为观察参照。'],
     ],
     chartMode: 'low-volume',
+    chartImage: '/real-chart-deviation.png',
     topCallout: '低成交层停留较短，观察通过节奏',
     bottomCallout: '接近下一密集层后，观察是否重新停留',
   },
@@ -205,7 +209,7 @@ export default function Home() {
 
             <div className="logic-charts">
               <figure className="real-chart-card">
-                <img src="/real-chart-example.png" alt="主力潮指标真实盘面示例" />
+                <img src={logic.chartImage} alt="主力潮指标真实盘面示例" />
                 <figcaption>{logic.topCallout}</figcaption>
                 <span className="real-pin pin-poc">POC主成交区</span>
                 <span className="real-pin pin-profile">成交密集层</span>
