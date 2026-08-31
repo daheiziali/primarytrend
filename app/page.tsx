@@ -1,158 +1,95 @@
-const profileRows = [
-  { y: 72, width: 18, tone: 'low' },
-  { y: 110, width: 34, tone: 'mid' },
-  { y: 147, width: 53, tone: 'high' },
-  { y: 184, width: 82, tone: 'poc' },
-  { y: 221, width: 61, tone: 'high' },
-  { y: 258, width: 39, tone: 'mid' },
-  { y: 295, width: 24, tone: 'low' },
+const stats = [
+  ['趋势方向', 'Bullish'],
+  ['POC 主成交区', '18.72'],
+  ['通道边界', '+3SD / -3SD'],
+  ['适用周期', '15m - 1D'],
 ];
 
-const lessons = [
-  ['回归中线', '市场在当前趋势结构里的动态均衡价。'],
-  ['弯曲 Profile', '统计价格相对趋势线的偏离，而不是固定价格。'],
-  ['POC 曲线', '窗口内成交量最集中的相对位置，常形成阶段支撑或压力。'],
-  ['SD 通道', '+1 到 +3 标准差用于判断价格偏离程度。'],
+const features = [
+  ['01', '趋势不是凭感觉看', '用线性/多项式回归拟合当前价格中枢，快速判断行情是在上行、下行还是结构切换。'],
+  ['02', '主力成交区一眼定位', 'POC 曲线标记窗口内成交最密集区域，辅助判断支撑、压力和筹码重心。'],
+  ['03', '偏离程度量化呈现', '+1SD 到 +3SD 通道展示价格偏离强弱，帮助避免盲目追涨杀跌。'],
+  ['04', '成交量分布跟随趋势', 'Profile 不再固定在水平价格，而是围绕趋势通道统计，更适合趋势行情复盘。'],
 ];
 
-const scenarios = [
-  ['趋势跟随', '只在 Direction 与大级别方向一致时寻找回踩或反弹确认。'],
-  ['支撑压力', '观察价格对 POC、回归中线、+/-1SD 的反应强弱。'],
-  ['极端偏离', '价格触及 +/-2SD 到 +/-3SD 后，等待量价确认再行动。'],
+const steps = [
+  ['先看方向', 'Dashboard 显示 Bullish / Bearish，先确定交易只顺哪一边。'],
+  ['再看位置', '价格处于中线、POC、+/-SD 哪个区域，决定是等待、跟随还是防守。'],
+  ['最后看反应', '结合 K 线与成交量，观察关键层级是否承接或受压。'],
 ];
 
-const plans = [
-  ['体验版', '¥99', '指标基础模板', '适合先验证风格和盘感'],
-  ['专业版', '¥299', '指标 + 交易说明书', '包含参数建议和案例拆解'],
-  ['陪跑版', '¥899', '专业版 + 1v1 解读', '适合需要快速搭建体系的用户'],
-];
+const rights = ['TradingView 指标源码', '中文使用说明书', '参数设置建议', '典型行情案例拆解', '付费用户更新记录'];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f4f0e8] text-[#18201f]">
-      <section className="hero-section">
-        <nav className="topbar" aria-label="产品导航">
-          <div className="brand-mark">
-            <span className="brand-dot" />
-            <span>主力潮 Pro</span>
-          </div>
-          <div className="nav-actions">
-            <a href="#demo">Demo</a>
-            <a href="#pricing">定价</a>
-            <a className="icon-button" href="#pricing" aria-label="立即购买">
-              ¥
-            </a>
+    <main>
+      <section className="hero">
+        <nav className="nav">
+          <div className="logo">主力潮 Pro</div>
+          <div className="nav-links">
+            <a href="#features">核心功能</a>
+            <a href="#usage">使用方法</a>
+            <a href="#buy">立即获取</a>
           </div>
         </nav>
 
-        <div className="hero-grid">
+        <div className="hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">Polynomial / Linear Regression Volume Profile</p>
-            <h1>把趋势、偏离和主成交区放进同一张图。</h1>
-            <p className="hero-lede">
-              一套面向 TradingView 用户的付费指标说明页 demo。它将回归通道、
-              标准差边界、POC 与弯曲成交量分布统一表达，帮助用户更快读懂趋势结构。
+            <p className="label">回归通道成交量分布指标</p>
+            <h1>看清趋势里的主力成交区</h1>
+            <p className="subtitle">
+              把趋势方向、标准差偏离、POC 主成交区和弯曲成交量分布合成一张图，
+              让 TradingView 盘面更适合复盘、跟踪和制定交易计划。
             </p>
-            <div className="cta-row">
-              <a className="primary-cta" href="#pricing">查看付费方案</a>
-              <a className="secondary-cta" href="#demo">打开指标演示</a>
+            <div className="hero-actions">
+              <a className="buy-button" href="#buy">立即获取指标</a>
+              <a className="ghost-button" href="#demo">查看图形说明</a>
             </div>
+            <div className="hero-note">适合股票、期货、外汇、加密货币等趋势型市场观察。</div>
           </div>
 
-          <div className="terminal-panel" aria-label="指标核心数值">
-            <div className="terminal-head">
-              <span />
-              <span />
-              <span />
+          <div id="demo" className="screen-card" aria-label="指标演示图">
+            <div className="screen-top">
+              <span>主力潮 Pro / Polynomial Regression VP</span>
+              <b>LIVE</b>
             </div>
-            <dl>
-              <div>
-                <dt>Direction</dt>
-                <dd>Bullish</dd>
+            <div className="chart-area">
+              <div className="chart-grid" />
+              <div className="curve curve-a" />
+              <div className="curve curve-b" />
+              <div className="curve curve-c" />
+              <div className="curve curve-poc" />
+              <div className="price-path" />
+              <div className="profile profile-1" />
+              <div className="profile profile-2" />
+              <div className="profile profile-3" />
+              <div className="profile profile-4" />
+              <div className="profile profile-5" />
+              <div className="chart-tag tag-a">+2 SD</div>
+              <div className="chart-tag tag-b">POC Vol 2.45M</div>
+              <div className="chart-tag tag-c">-2 SD</div>
+              <div className="metric-panel">
+                {stats.map(([name, value]) => (
+                  <div key={name}>
+                    <span>{name}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
               </div>
-              <div>
-                <dt>POC Level</dt>
-                <dd>18.72</dd>
-              </div>
-              <div>
-                <dt>POC Volume</dt>
-                <dd>2.45M</dd>
-              </div>
-              <div>
-                <dt>Channel</dt>
-                <dd>H 21.08 / L 15.36</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section id="demo" className="demo-section">
-        <div className="section-heading">
-          <p className="eyebrow">Interactive Style Demo</p>
-          <h2>成交量分布为什么会弯？</h2>
-          <p>
-            这套指标不是按固定价格统计成交量，而是围绕回归趋势线统计“相对偏离层”。
-            趋势线弯曲时，成交量 profile 也会跟随通道弯曲。
-          </p>
-        </div>
-
-        <div className="chart-shell">
-          <div className="chart-toolbar">
-            <span>Polynomial</span>
-            <span>Period 200</span>
-            <span>Rows 20</span>
-          </div>
-          <div className="chart-stage">
-            <div className="sd-label sd-top">+2 SD</div>
-            <div className="sd-label sd-mid">POC</div>
-            <div className="sd-label sd-bottom">-2 SD</div>
-            <svg className="chart-svg" viewBox="0 0 760 380" role="img" aria-label="回归成交量分布示意图">
-              <path className="grid-line" d="M34 78 C190 42 302 84 428 61 S628 70 726 36" />
-              <path className="grid-line" d="M34 127 C190 91 302 133 428 110 S628 119 726 85" />
-              <path className="basis-line" d="M34 178 C190 142 302 184 428 161 S628 170 726 136" />
-              <path className="grid-line" d="M34 229 C190 193 302 235 428 212 S628 221 726 187" />
-              <path className="grid-line" d="M34 280 C190 244 302 286 428 263 S628 272 726 238" />
-              <path className="poc-line" d="M34 201 C190 165 302 207 428 184 S628 193 726 159" />
-              <path className="price-line" d="M38 245 C126 198 190 222 256 174 S388 112 474 143 S618 202 720 98" />
-              {profileRows.map((row) => (
-                <path
-                  key={row.y}
-                  className={`profile-line ${row.tone}`}
-                  d={`M${706 - row.width * 4} ${row.y} C${644 - row.width * 2} ${row.y - 25} ${588 - row.width} ${row.y + 9} 706 ${row.y - 28}`}
-                />
-              ))}
-              <circle className="hot-dot" cx="610" cy="177" r="7" />
-            </svg>
-            <div className="dashboard-card">
-              <strong>Regression Matrix</strong>
-              <span>Direction <b>Bullish</b></span>
-              <span>POC Level <b>18.72</b></span>
-              <span>POC Volume <b>2.45M</b></span>
-              <span>High / Low <b>21.08 / 15.36</b></span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="lesson-grid" aria-label="指标元素解释">
-        {lessons.map(([title, body]) => (
-          <article key={title} className="info-card">
-            <span className="card-index">{title.slice(0, 2)}</span>
-            <h3>{title}</h3>
-            <p>{body}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="use-section">
-        <div className="section-heading compact">
-          <p className="eyebrow">Trading Playbook</p>
-          <h2>适合放进交易系统，而不是孤立当买卖点。</h2>
+      <section id="features" className="section dark-section">
+        <div className="section-title">
+          <p className="label">为什么它和普通成交量分布不同</p>
+          <h2>它看的是“趋势通道里的成交量”，不是静态价格。</h2>
         </div>
-        <div className="scenario-list">
-          {scenarios.map(([title, body]) => (
-            <article key={title}>
+        <div className="feature-grid">
+          {features.map(([num, title, body]) => (
+            <article key={num} className="feature-card">
+              <span>{num}</span>
               <h3>{title}</h3>
               <p>{body}</p>
             </article>
@@ -160,21 +97,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="pricing-section">
-        <div className="section-heading compact">
-          <p className="eyebrow">Paid Product</p>
-          <h2>把指标卖成一套“可理解、可复盘、可交付”的产品。</h2>
+      <section id="usage" className="section gold-section">
+        <div className="section-title narrow">
+          <p className="label">三步读图法</p>
+          <h2>先定方向，再找位置，最后等市场给确认。</h2>
         </div>
-        <div className="pricing-grid">
-          {plans.map(([name, price, feature, note], index) => (
-            <article className={index === 1 ? 'price-card featured' : 'price-card'} key={name}>
-              <p>{name}</p>
-              <h3>{price}</h3>
-              <strong>{feature}</strong>
-              <span>{note}</span>
-              <a href="#demo">{index === 1 ? '推荐购买' : '选择方案'}</a>
+        <div className="step-list">
+          {steps.map(([title, body], index) => (
+            <article key={title}>
+              <em>{index + 1}</em>
+              <div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="buy" className="buy-section">
+        <div className="buy-panel">
+          <div>
+            <p className="label">付费指标权益</p>
+            <h2>主力潮 Pro 指标包</h2>
+            <p className="buy-desc">
+              一次获取指标源码与完整中文说明，适合用于个人交易复盘、盘中观察和策略辅助。
+            </p>
+            <ul>
+              {rights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <aside className="price-box">
+            <span>限时体验价</span>
+            <strong>¥299</strong>
+            <p>包含后续小版本更新</p>
+            <a href="mailto:hello@example.com?subject=购买主力潮Pro指标">联系购买</a>
+          </aside>
         </div>
       </section>
     </main>
