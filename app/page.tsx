@@ -18,6 +18,14 @@ const steps = [
   ['最后看反应', '结合 K 线与成交量，观察关键层级是否承接或受压。'],
 ];
 
+const logicTabs = ['趋势回踩', 'POC支撑', '极端偏离', '低量穿越'];
+
+const logicCards = [
+  ['1. 判断主趋势', '先看回归中线方向和 Dashboard：中线向上优先找回踩承接，中线向下优先找反弹受压。'],
+  ['2. 锁定关键层', '重点观察 POC 曲线、回归中线、+/-1SD 区域，它们是行情最容易发生反应的位置。'],
+  ['3. 等待量价确认', '价格触及关键层后，不急着追单，等待止跌、放量、假突破回收或反压确认。'],
+];
+
 const rights = ['TradingView 指标源码', '中文使用说明书', '参数设置建议', '典型行情案例拆解', '付费用户更新记录'];
 
 export default function Home() {
@@ -28,6 +36,7 @@ export default function Home() {
           <div className="logo">主力潮 Pro</div>
           <div className="nav-links">
             <a href="#features">核心功能</a>
+            <a href="#logic">实战图解</a>
             <a href="#usage">使用方法</a>
             <a href="#buy">立即获取</a>
           </div>
@@ -94,6 +103,63 @@ export default function Home() {
               <p>{body}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="logic" className="logic-section">
+        <div className="logic-wrap">
+          <div className="logic-title">
+            <p className="label">行情图使用逻辑</p>
+            <h2>主力潮不是给一个孤立信号，而是帮你拆出交易位置。</h2>
+            <p>
+              先把行情放进回归通道，再看价格靠近哪一层成交量结构。
+              下面用分图展示实际盘面中最常见的两类使用方式。
+            </p>
+          </div>
+
+          <div className="logic-tabs" aria-label="信号分类">
+            {logicTabs.map((item, index) => (
+              <span className={index === 0 ? 'active' : ''} key={item}>{item}</span>
+            ))}
+          </div>
+
+          <div className="logic-panel">
+            <div className="logic-copy">
+              <div className="logic-badge">绿色区域：多头关注承接位 / 橙色曲线：POC主成交区</div>
+              <h3>趋势回踩到主成交区，观察是否形成支撑。</h3>
+              <p>
+                当回归中线保持上行，价格回踩到 POC 或 -1SD 附近时，
+                这里不是简单的“低价”，而是趋势结构里的高换手位置。
+              </p>
+              <div className="logic-card-list">
+                {logicCards.map(([title, body]) => (
+                  <article key={title}>
+                    <strong>{title}</strong>
+                    <span>{body}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="logic-charts">
+              <div className="mini-chart bullish-chart">
+                <div className="zone zone-resistance" />
+                <div className="zone zone-support" />
+                <div className="mini-path path-bull" />
+                <div className="mini-poc" />
+                <div className="entry-dot entry-a" />
+                <div className="entry-dot entry-b" />
+                <div className="callout callout-a">回踩POC后放量收回，观察多头承接</div>
+              </div>
+              <div className="mini-chart bearish-chart">
+                <div className="zone zone-sell" />
+                <div className="mini-path path-bear" />
+                <div className="mini-poc lower" />
+                <div className="entry-dot entry-c" />
+                <div className="callout callout-b">跌破主成交区后，反弹靠近POC看压力</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

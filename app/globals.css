@@ -372,6 +372,253 @@ main {
   background: #0c1118;
 }
 
+.logic-section {
+  padding: 92px clamp(18px, 5vw, 72px);
+  background:
+    linear-gradient(180deg, #111821, #080b10 72%),
+    #080b10;
+}
+
+.logic-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.logic-title {
+  max-width: 880px;
+  margin-bottom: 28px;
+}
+
+.logic-title h2 {
+  margin: 0;
+  color: #fff7df;
+  font-size: clamp(34px, 4vw, 62px);
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.logic-title p:last-child {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: #aeb8bf;
+  font-size: 17px;
+  line-height: 1.76;
+}
+
+.logic-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 0 0 18px;
+  padding-left: 8px;
+  color: rgba(255, 247, 223, 0.42);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.logic-tabs span {
+  position: relative;
+  padding: 10px 0;
+}
+
+.logic-tabs .active {
+  color: #fff66f;
+}
+
+.logic-tabs .active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #fff66f;
+}
+
+.logic-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(245, 196, 107, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(245, 196, 107, 0.12), transparent 34%),
+    rgba(2, 5, 8, 0.78);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.logic-copy h3 {
+  margin: 14px 0 12px;
+  color: #fff65e;
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.18;
+}
+
+.logic-copy p {
+  margin: 0;
+  color: #aeb8bf;
+  line-height: 1.78;
+}
+
+.logic-badge {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 246, 95, 0.28);
+  border-radius: 4px;
+  background: rgba(255, 246, 95, 0.08);
+  color: #fff8a6;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.logic-card-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.logic-card-list article {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--gold);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.logic-card-list strong {
+  color: #fff7df;
+}
+
+.logic-card-list span {
+  color: #aeb8bf;
+  line-height: 1.62;
+}
+
+.logic-charts {
+  display: grid;
+  gap: 14px;
+}
+
+.mini-chart {
+  position: relative;
+  min-height: 238px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    #101520;
+  background-size: 48px 48px;
+}
+
+.zone {
+  position: absolute;
+  right: 0;
+  height: 16px;
+}
+
+.zone-resistance {
+  top: 60px;
+  width: 58%;
+  background: rgba(159, 255, 195, 0.88);
+}
+
+.zone-support {
+  top: 125px;
+  width: 70%;
+  background: rgba(159, 255, 195, 0.82);
+}
+
+.zone-sell {
+  bottom: 45px;
+  width: 88%;
+  background: rgba(229, 91, 102, 0.48);
+}
+
+.mini-path,
+.mini-poc {
+  position: absolute;
+  border-radius: 50%;
+  transform: rotate(-7deg);
+}
+
+.mini-path {
+  left: 4%;
+  right: 6%;
+  height: 126px;
+  border-top: 2px solid var(--green);
+  filter: drop-shadow(0 0 8px rgba(50, 212, 160, 0.35));
+}
+
+.path-bull {
+  top: 78px;
+  transform: rotate(-18deg) skewX(18deg);
+}
+
+.path-bear {
+  top: 74px;
+  transform: rotate(13deg) skewX(-14deg);
+  border-top-color: var(--red);
+  filter: drop-shadow(0 0 8px rgba(240, 93, 94, 0.28));
+}
+
+.mini-poc {
+  left: 8%;
+  right: 4%;
+  top: 102px;
+  height: 88px;
+  border-top: 3px solid var(--amber);
+}
+
+.mini-poc.lower {
+  top: 142px;
+}
+
+.entry-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff7df;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(255, 159, 45, 0.16);
+}
+
+.entry-a {
+  left: 40%;
+  top: 122px;
+}
+
+.entry-b {
+  left: 48%;
+  top: 130px;
+}
+
+.entry-c {
+  left: 50%;
+  bottom: 48px;
+}
+
+.callout {
+  position: absolute;
+  left: 7%;
+  bottom: 20px;
+  max-width: 72%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(255, 247, 223, 0.18);
+  color: #fff7df;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.callout-b {
+  background: rgba(229, 91, 102, 0.2);
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -547,6 +794,7 @@ main {
 @media (max-width: 980px) {
   .hero-inner,
   .feature-grid,
+  .logic-panel,
   .buy-panel {
     grid-template-columns: 1fr;
   }
@@ -597,6 +845,25 @@ main {
 
   .feature-card {
     min-height: auto;
+  }
+
+  .logic-tabs {
+    gap: 16px;
+    font-size: 17px;
+  }
+
+  .logic-panel {
+    padding: 16px;
+  }
+
+  .logic-badge {
+    display: block;
+  }
+
+  .callout {
+    max-width: calc(100% - 28px);
+    left: 14px;
+    right: 14px;
   }
 
   .step-list article,
