@@ -511,6 +511,79 @@ main {
   gap: 14px;
 }
 
+.real-chart-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 196, 107, 0.22);
+  border-radius: 6px;
+  background: #101520;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.real-chart-card img {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.real-chart-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6, 10, 15, 0.2), transparent 28%),
+    linear-gradient(180deg, transparent 54%, rgba(6, 10, 15, 0.24));
+}
+
+.real-chart-card figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  max-width: min(480px, calc(100% - 36px));
+  padding: 10px 12px;
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  background: rgba(7, 9, 13, 0.78);
+  color: #fff7df;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.real-pin {
+  position: absolute;
+  z-index: 2;
+  padding: 6px 8px;
+  border: 1px solid rgba(245, 196, 107, 0.32);
+  border-radius: 4px;
+  background: rgba(7, 9, 13, 0.72);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.pin-poc {
+  right: 12%;
+  top: 47%;
+}
+
+.pin-profile {
+  right: 8%;
+  top: 35%;
+}
+
+.pin-sd {
+  right: 20%;
+  top: 16%;
+  color: #d6f4ff;
+}
+
 .mini-chart {
   position: relative;
   min-height: 238px;
@@ -918,6 +991,19 @@ main {
 
   .logic-badge {
     display: block;
+  }
+
+  .real-pin {
+    display: none;
+  }
+
+  .real-chart-card figcaption {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
   }
 
   .callout {

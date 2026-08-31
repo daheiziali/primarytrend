@@ -204,6 +204,13 @@ export default function Home() {
             </div>
 
             <div className="logic-charts">
+              <figure className="real-chart-card">
+                <img src="/real-chart-example.png" alt="主力潮指标真实盘面示例" />
+                <figcaption>{logic.topCallout}</figcaption>
+                <span className="real-pin pin-poc">POC主成交区</span>
+                <span className="real-pin pin-profile">成交密集层</span>
+                <span className="real-pin pin-sd">偏离通道</span>
+              </figure>
               <div className="mini-chart bullish-chart">
                 <div className="zone zone-resistance" />
                 <div className="zone zone-support" />
