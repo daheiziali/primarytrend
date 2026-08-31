@@ -416,9 +416,19 @@ main {
   font-weight: 900;
 }
 
-.logic-tabs span {
+.logic-tabs button {
   position: relative;
   padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0;
+}
+
+.logic-tabs button:hover {
+  color: rgba(255, 247, 223, 0.78);
 }
 
 .logic-tabs .active {
@@ -617,6 +627,56 @@ main {
 
 .callout-b {
   background: rgba(229, 91, 102, 0.2);
+}
+
+.mode-poc .zone-resistance,
+.mode-poc .zone-support {
+  background: rgba(255, 196, 107, 0.72);
+}
+
+.mode-poc .mini-poc {
+  border-top-width: 5px;
+  filter: drop-shadow(0 0 12px rgba(255, 159, 45, 0.44));
+}
+
+.mode-poc .entry-dot {
+  background: var(--gold);
+}
+
+.mode-deviation .zone-resistance {
+  top: 34px;
+  height: 18px;
+  background: rgba(255, 246, 95, 0.66);
+}
+
+.mode-deviation .zone-support {
+  top: auto;
+  bottom: 42px;
+  width: 62%;
+  background: rgba(255, 246, 95, 0.42);
+}
+
+.mode-deviation .mini-path {
+  border-top-color: #fff66f;
+}
+
+.mode-low-volume .profile-3,
+.mode-low-volume .zone-resistance,
+.mode-low-volume .zone-support {
+  opacity: 0.42;
+}
+
+.mode-low-volume .zone-resistance {
+  width: 32%;
+}
+
+.mode-low-volume .zone-support {
+  width: 38%;
+}
+
+.mode-low-volume .mini-poc {
+  border-top-style: dashed;
+  border-top-color: rgba(245, 196, 107, 0.58);
 }
 
 .feature-grid {
