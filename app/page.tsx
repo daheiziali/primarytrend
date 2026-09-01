@@ -112,7 +112,7 @@ export default function Home() {
               <a className="primary-button" href="#logic">查看实战图解</a>
               <a className="ghost-button" href="#usage">查看使用方法</a>
             </div>
-            <div className="hero-note">适合股票、期货、外汇等趋势型市场观察。</div>
+            <div className="hero-note">适合贵金属、外汇、期货、股票等趋势型市场观察。</div>
           </div>
 
           <div id="demo" className="screen-card" aria-label="指标演示图">
