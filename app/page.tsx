@@ -106,17 +106,16 @@ export default function Home() {
 
         <div className="hero-inner">
           <div className="hero-copy">
-            <p className="label">回归通道成交量分布指标</p>
             <h1>看清趋势里的主力成交区</h1>
             <p className="subtitle">
-              把趋势方向、标准差偏离、POC 主成交区和弯曲成交量分布合成一张图，
+              一个指标看清趋势结构、偏离状态与主成交区，
               让 TradingView 盘面更适合复盘、跟踪和结构化观察。
             </p>
             <div className="hero-actions">
               <a className="buy-button" href="#buy">立即获取指标</a>
-              <a className="ghost-button" href="#demo">查看图形说明</a>
+              <a className="ghost-button" href="#logic">查看实战图解</a>
             </div>
-            <div className="hero-note">适合股票、期货、外汇、加密货币等趋势型市场观察。</div>
+            <div className="hero-note">适合股票、期货、外汇等趋势型市场观察。</div>
           </div>
 
           <div id="demo" className="screen-card" aria-label="指标演示图">
