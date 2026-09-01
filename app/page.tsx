@@ -85,8 +85,6 @@ const logicPanels = [
   },
 ];
 
-const rights = ['TradingView 指标源码', '中文使用说明书', '参数设置建议', '典型行情案例拆解', '付费用户更新记录'];
-
 export default function Home() {
   const [activeLogic, setActiveLogic] = useState(0);
   const logic = logicPanels[activeLogic];
@@ -100,7 +98,6 @@ export default function Home() {
             <a href="#features">核心功能</a>
             <a href="#logic">实战图解</a>
             <a href="#usage">使用方法</a>
-            <a href="#buy">立即获取</a>
           </div>
         </nav>
 
@@ -109,18 +106,18 @@ export default function Home() {
             <h1>看清趋势里的主力成交区</h1>
             <p className="subtitle">
               一个指标看清趋势结构、偏离状态与主成交区，
-              让 TradingView 盘面更适合复盘、跟踪和结构化观察。
+              让盘面更适合复盘、跟踪和结构化观察。
             </p>
             <div className="hero-actions">
-              <a className="buy-button" href="#buy">立即获取指标</a>
-              <a className="ghost-button" href="#logic">查看实战图解</a>
+              <a className="primary-button" href="#logic">查看实战图解</a>
+              <a className="ghost-button" href="#usage">查看使用方法</a>
             </div>
             <div className="hero-note">适合股票、期货、外汇等趋势型市场观察。</div>
           </div>
 
           <div id="demo" className="screen-card" aria-label="指标演示图">
             <div className="screen-top">
-              <span>主力潮 Pro / Polynomial Regression VP</span>
+              <span>主力潮 Pro</span>
               <b>LIVE</b>
             </div>
             <div className="chart-area">
@@ -221,28 +218,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="buy" className="buy-section">
-        <div className="buy-panel">
-          <div>
-            <p className="label">付费指标权益</p>
-            <h2>主力潮 Pro 指标包</h2>
-            <p className="buy-desc">
-              一次获取指标源码与完整中文说明，适合用于个人复盘、盘中观察和策略辅助。
-            </p>
-            <ul>
-              {rights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <aside className="price-box">
-            <span>限时体验价</span>
-            <strong>¥299</strong>
-            <p>包含后续小版本更新</p>
-            <a href="mailto:hello@example.com?subject=购买主力潮Pro指标">联系购买</a>
-          </aside>
-        </div>
-      </section>
     </main>
   );
 }

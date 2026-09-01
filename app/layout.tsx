@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: '主力潮 Pro | 回归成交量分布指标',
-  description: '面向 TradingView 用户的回归通道成交量分布付费指标介绍页。',
+  description: '主力潮 Pro 回归通道成交量分布指标介绍页。',
 };
 
 export default function RootLayout({
