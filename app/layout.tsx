@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '主力潮 Pro | 回归成交量分布指标',
-  description: '主力潮 Pro 回归通道成交量分布指标介绍页。',
+  title: '主力溯源 | 回归通道成交量分布指标',
+  description: '主力溯源回归通道成交量分布与动态支撑阻力指标介绍页。',
 };
 
 export default function RootLayout({
