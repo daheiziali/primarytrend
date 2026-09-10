@@ -94,7 +94,7 @@ const logicPanels = [
       ['3. 看触达反馈', '靠近 SR 后重点观察停留、回收、波动放大或收敛，而不是把它当作固定结论。'],
     ],
     chartMode: 'sr',
-    chartImage: '/logic-poc.png',
+    chartImage: '/logic-sr.png',
     topCallout: '动态SR来自量能突变层，会跟随回归结构弯曲',
     bottomCallout: '与POC、SD层叠加观察，参考价值更完整',
   },
